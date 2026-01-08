@@ -3,10 +3,14 @@ import os
 from dotenv import load_dotenv
 
 def main():
-    # クライアントの初期化
-    load_dotenv()
-    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+    # API キーの取得
+    load_dotenv()  # .env ファイルを読み込む
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY が設定されていません。環境変数か .env を確認してください。")
 
+    # クライアントの初期化
+    client = OpenAI(api_key=api_key)
     # モデルの指定
     target_model = "gpt-5-nano"
     # プロンプト

@@ -3,12 +3,16 @@ import os
 from dotenv import load_dotenv
 
 def main():
-    # クライアントの初期化
-    load_dotenv()
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    # API キーの取得
+    load_dotenv()  # .env ファイルを読み込む
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY が設定されていません。環境変数か .env を確認してください。")
 
+    # クライアントの初期化
+    client = genai.Client(api_key=api_key)
     # モデルの指定
-    target_model = "models/gemini-2.5-flash"
+    target_model = "gemini-2.5-flash"
     # プロンプト
     prompt = "API でデータを処理する仕組みを200文字で教えてください。"
 
