@@ -7,7 +7,7 @@ def main():
     load_dotenv()  # .env ファイルを読み込む
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        raise RuntimeError("GEMINI_API_KEY が設定されていません。環境変数か .env を確認してください。")
+        raise RuntimeError("GEMINI_API_KEY が設定されていません。環境変数か .env ファイルを確認してください。")
 
     # クライアントの初期化
     client = genai.Client(api_key=api_key)
