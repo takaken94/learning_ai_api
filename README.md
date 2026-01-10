@@ -1,7 +1,7 @@
 # AI 関連の API（Gemini、OpenAI）の学習・試用
 
 ## 概要
-生成 AI 関連の API（Gemini、OpenAI）の学習・試用するためのリポジトリです。
+生成 AI 関連の API（Gemini、OpenAI）を学習・試用するためのリポジトリです。
 
 ## 準備
 ### 1. API キー
